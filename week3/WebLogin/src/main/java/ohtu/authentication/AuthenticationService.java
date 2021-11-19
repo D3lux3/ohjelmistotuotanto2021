@@ -34,11 +34,28 @@ public class AuthenticationService {
             status.addError("username should have at least 3 characters");
         }
 
+        if (password.length() < 8 || !containsADigit(password)) {
+            status.addError("password should have at least 8 characters and must contain number");
+        }
+
+        if (!password.equals(passwordConfirmation)) {
+            status.addError("passwords does not match");
+        }
+
         if (status.isOk()) {
             userDao.add(new User(username, password));
         }
         
         return status;
+    }
+
+    private boolean containsADigit(String s) {
+        for (Character c : s.toCharArray()) {
+            if(Character.isDigit(c)) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }

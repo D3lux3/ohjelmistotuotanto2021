@@ -24,18 +24,19 @@ project.ext {
 }
 
 dependencies {
+    implementation "org.slf4j:slf4j-simple:1.7.9"
     implementation group: 'io.cucumber', name: 'cucumber-java', version: '7.0.0'
     testImplementation group: 'io.cucumber', name: 'cucumber-junit', version: '7.0.0'
     testImplementation 'junit:junit:4.13.2'
-    compile group: 'com.sparkjava', name: 'spark-core', version: sparkVersion
-    compile group: 'com.sparkjava', name: 'spark-template-velocity', version: sparkVersion
-    testCompile group: 'org.fluentlenium', name: 'fluentlenium-core', version: fluentleniumVersion
-    testCompile group: 'org.fluentlenium', name: 'fluentlenium-assertj', version: fluentleniumVersion  
-    compile group: 'org.seleniumhq.selenium', name: 'selenium-firefox-driver', version:seleniumVersion
-    compile group: 'org.seleniumhq.selenium', name: 'selenium-chrome-driver', version:seleniumVersion
-    compile group: 'org.seleniumhq.selenium', name: 'selenium-api', version:seleniumVersion
-    compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version:seleniumVersion   
-    compile group: 'org.seleniumhq.selenium', name: 'htmlunit-driver', version: '2.33.0'
+    implementation group: 'com.sparkjava', name: 'spark-core', version: sparkVersion
+    implementation group: 'com.sparkjava', name: 'spark-template-velocity', version: sparkVersion
+    testImplementation group: 'org.fluentlenium', name: 'fluentlenium-core', version: fluentleniumVersion
+    testImplementation group: 'org.fluentlenium', name: 'fluentlenium-assertj', version: fluentleniumVersion
+    implementation group: 'org.seleniumhq.selenium', name: 'selenium-firefox-driver', version:seleniumVersion
+    implementation group: 'org.seleniumhq.selenium', name: 'selenium-chrome-driver', version:seleniumVersion
+    implementation group: 'org.seleniumhq.selenium', name: 'selenium-api', version:seleniumVersion
+    implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version:seleniumVersion
+    implementation group: 'org.seleniumhq.selenium', name: 'htmlunit-driver', version: '2.33.0'
 }
 
 test {
