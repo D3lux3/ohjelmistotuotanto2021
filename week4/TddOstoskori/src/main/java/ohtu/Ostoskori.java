@@ -27,6 +27,7 @@ public class Ostoskori {
     }
  
     public void lisaaTuote(Tuote lisattava) {
+        kori.add(new Ostos(lisattava));
         // lisää tuotteen
     }
  
