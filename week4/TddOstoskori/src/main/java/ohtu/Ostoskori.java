@@ -40,6 +40,10 @@ public class Ostoskori {
     public void poista(Tuote poistettava) {
         for (Ostos ostos : kori) {
             if (ostos.tuotteenNimi().equals(poistettava.getNimi())) {
+                if (ostos.lukumaara() == 1) {
+                    kori.remove(ostos);
+                    return;
+                }
                 ostos.muutaLukumaaraa(-1);
                 return;
             }
