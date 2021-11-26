@@ -2,6 +2,7 @@ package ohtu;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Ostoskori {
 
@@ -23,12 +24,17 @@ public class Ostoskori {
     }
  
     public int hinta() {
-        return kori.stream().map(ostos -> ostos.lukumaara() * ostos.hinta()).reduce(0, Integer::sum);
+        return kori.stream().map(Ostos::hinta).reduce(0, Integer::sum);
     }
  
     public void lisaaTuote(Tuote lisattava) {
+        for (Ostos ostos : kori) {
+            if (ostos.tuotteenNimi().equals(lisattava.getNimi())) {
+                ostos.muutaLukumaaraa(1);
+                return;
+            }
+        }
         kori.add(new Ostos(lisattava));
-        // lisää tuotteen
     }
  
     public void poista(Tuote poistettava) {
