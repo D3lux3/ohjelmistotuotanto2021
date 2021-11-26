@@ -116,7 +116,19 @@ public class OstoskoriTest {
         Ostos ostos = kori.ostokset().get(0);
         assertEquals(maito.getNimi(), ostos.tuotteenNimi());
         assertEquals(2, ostos.lukumaara());
+    }
 
+    @Test
+    public void kahdenSamanTuotteenJalkeenPoistetaanJaKorissaYksiTuote() {
+        assertEquals(0, kori.tavaroitaKorissa());
+        Tuote maito = new Tuote("maito", 3);
+        kori.lisaaTuote(maito);
+        kori.lisaaTuote(maito);
+        kori.poista(maito);
+        Ostos ostos = kori.ostokset().get(0);
+
+        assertEquals(maito.getNimi(), ostos.tuotteenNimi());
+        assertEquals(1, ostos.lukumaara());
     }
 
 }
