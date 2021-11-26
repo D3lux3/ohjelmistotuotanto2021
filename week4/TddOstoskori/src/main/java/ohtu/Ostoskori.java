@@ -1,9 +1,16 @@
 package ohtu;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Ostoskori {
- 
+
+    List<Ostos> kori;
+
+    public Ostoskori () {
+        this.kori = new ArrayList<>();
+    }
+
     public int tavaroitaKorissa() {
         // kertoo korissa olevien tavaroiden lukumäärän
         // eli jos koriin lisätty 2 kpl tuotetta "maito", 
@@ -11,13 +18,12 @@ public class Ostoskori {
         // jos korissa on 1 kpl tuotetta "maito" ja 1 kpl tuotetta "juusto", 
         //   tulee metodin palauttaa 2   
 
-        return -1;
+
+        return kori.stream().map(Ostos::lukumaara).reduce(0, Integer::sum);
     }
  
     public int hinta() {
-        // kertoo korissa olevien tuotteiden yhteenlasketun hinnan
- 
-        return -1;
+        return kori.stream().map(ostos -> ostos.lukumaara() * ostos.hinta()).reduce(0, Integer::sum);
     }
  
     public void lisaaTuote(Tuote lisattava) {
