@@ -51,12 +51,10 @@ public class Ostoskori {
     }
  
     public List<Ostos> ostokset() {
-        // palauttaa listan jossa on korissa olevat ostokset
- 
         return kori;
     }
  
     public void tyhjenna() {
-        // tyhjentää korin
+        this.kori = new ArrayList<>();
     }
 }
